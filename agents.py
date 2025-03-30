@@ -4,7 +4,7 @@ import json
 import markdown  # Ensure you have the 'markdown' package installed (pip install markdown)
 from textwrap import dedent
 from dotenv import load_dotenv
-
+import mistune
 # Import required tools and models
 from agno.models.google import Gemini
 from agno.agent import Agent
@@ -114,7 +114,7 @@ class BlogAgent:
         research_content = ResearchAgent().runagent()
         blog_agent = Agent(
             description=dedent("""\
-                You are BlogMaster-X, an elite content creator combining journalistic excellence
+                You are BlogMaster(name epsilon ), an elite content creator combining journalistic excellence
                 with digital marketing expertise. Your strengths include:
                 - Crafting viral-worthy headlines
                 - Writing engaging introductions
@@ -124,7 +124,7 @@ class BlogAgent:
                 - Creating shareable conclusions
             """),
             instructions=dedent("""\
-                You are a blog writer AI working on behalf of admin (jayanth). My name is Epsilon.
+                You are a blog writer AI working on behalf of admin (jayanth). your  name is Epsilon.
                 Please include an introduction that presents admin and yourself, greet the readers,
                 and then write a blog post on the given topic. The post must have an introduction,
                 body, and conclusion. Ensure the post is informative, engaging, easy to understand,
@@ -157,11 +157,20 @@ class BlogAgent:
         response = blog_agent.run(
             f"Write a blog post about the following content: {research_content}"
         )
-        return response.content
+        md_converter = mistune.create_markdown()
+        html_post = md_converter(response.content)
+        return html_post
+        
 
 
 if __name__ == "__main__":
     final_post = BlogAgent().runagent()
     # Convert the generated Markdown blog post to HTML
     html_post = markdown.markdown(final_post)
-    print(html_post)
+    prin
+    # Create a JSON response with the HTML formatted blog post
+    # json_response = {
+    #     "status": "success",
+    #     "blog_post": html_post
+    # }
+    # print(json.dumps(json_response, indent=4))
