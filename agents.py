@@ -26,6 +26,7 @@ class NewsAgent:
         print(f"Selected topic: {topic}")
         news_headlines = NewsTools(topic).get_news_headlines()
         
+        
         news_agent = Agent(
             description=dedent("""\
                 You are BlogResearch of admin (jayanth), an elite research assistant specializing in discovering
@@ -56,7 +57,7 @@ class NewsAgent:
             tools=[web_search],
         )
         response = news_agent.run(
-            f"Get the latest news about {news_headlines}. It should include complete information and insights on the topic from recent times."
+            f"Get the latest news about {topic }. It should include complete information and insights on the topic from recent times."
         )
         return response.content
 
