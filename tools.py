@@ -22,7 +22,8 @@ class NewsTools:
         from_to = date.today() - timedelta(days=30)
         
         print(from_to)
-        url = f"https://newsapi.org/v2/everything?q={self.topic}&from={from_to}&sortBy=popularity&apiKey=55d9223ae2564088985b9481c336d45d"
+        news_api_key = os.environ.get('NEWS_API_KEY')
+        url = f"https://newsapi.org/v2/everything?q={self.topic}&from={from_to}&sortBy=popularity&apiKey={ news_api_key }" # "55d9223ae2564088985b9481c336d45d"
         
         try:
             response = requests.get(url)
