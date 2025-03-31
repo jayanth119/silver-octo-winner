@@ -24,17 +24,13 @@ def index():
 
 @app.route("/blog", methods=["GET"])
 def get_blog_post():
-    """
-    Endpoint to generate and return the blog post as HTML in a JSON response.
-    """
-    # Generate Markdown blog post using BlogAgent
+    # Get the blog post, which is now a dictionary with 'title' and 'blog_post'
     final_post = BlogAgent().runagent()
+    # Directly return the result as JSON
+    return jsonify({"status": "success", "blog_post": final_post['blog_post'] , "title": final_post['title']})
+
     
-    # Convert Markdown to HTML using Mistune
-    # md_converter = mistune.create_markdown()
-    # html_post = md_converter(final_post)
-    
-    return jsonify({"status": "success", "blog_post": final_post})
+    return {"status": "success", "blog_post": final_post, "title": title}
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=8000, debug=True)
