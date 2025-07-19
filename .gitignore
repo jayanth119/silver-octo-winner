@@ -1,3 +1,5 @@
 env
 .env
 index.html
+__pycache__
+medicine_info.json

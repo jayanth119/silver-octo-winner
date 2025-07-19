@@ -1,0 +1,49 @@
+[
+  {
+    "medicine_name": "Aceclofenac & Paracetamol Tablets IP",
+    "diseases": [
+      "Osteoarthritis",
+      "Rheumatoid Arthritis",
+      "Ankylosing Spondylitis",
+      "Dental Pain",
+      "Headache",
+      "Muscle pain",
+      "Pain associated with injury"
+    ],
+    "uses_and_benefits": [
+      "Provides relief from pain and inflammation",
+      "Reduces fever"
+    ],
+    "dosage": "The usual dose is one or two tablets, up to three times a day.  This should only be taken as directed by a doctor or pharmacist.",
+    "side_effects": [
+      "Nausea",
+      "Vomiting",
+      "Diarrhoea",
+      "Constipation",
+      "Heartburn",
+      "Abdominal pain",
+      "Headache",
+      "Dizziness",
+      "Allergic reactions (rash, itching, swelling)",
+      "Liver damage (rare)"
+    ],
+    "time_to_improve": {
+      "pain_and_fever": "The onset of pain and fever relief varies, usually within a few hours of taking the medication, but the full effect might take several days.",
+      "swelling": "Reduction in swelling typically takes longer, often several days to a week."
+    },
+    "precautions": [
+      "Do not take more than the recommended dose.",
+      "Do not take with alcohol.",
+      "Do not take if you have a history of stomach ulcers or bleeding.",
+      "Do not take if you have liver or kidney problems.",
+      "Consult your doctor before taking this medicine if you are pregnant or breastfeeding."
+    ],
+    "conditions_treated": [
+      "Pain",
+      "Fever",
+      "Inflammation",
+      "Headache",
+      "Muscle aches"
+    ]
+  }
+]

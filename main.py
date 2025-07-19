@@ -1,13 +1,13 @@
 import os
 import random
-import mistune  # Alternative Markdown parser
+import mistune 
 from textwrap import dedent
 from dotenv import load_dotenv
 from flask import Flask, jsonify
-from agents import BlogAgent  # Ensure your agents module is in your PYTHONPATH
+from agents.news_agents import BlogAgent  
 from flask_cors import CORS, cross_origin
 # Load environment variables
-load_dotenv()
+load_dotenv() 
 
 app = Flask(__name__)
 cors = CORS(app , resources={r"/*": {"origins": "*"}})
@@ -28,9 +28,6 @@ def get_blog_post():
     final_post = BlogAgent().runagent()
     # Directly return the result as JSON
     return jsonify({"status": "success", "blog_post": final_post['blog_post'] , "title": final_post['title']})
-
-    
-    return {"status": "success", "blog_post": final_post, "title": title}
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=8000, debug=True)

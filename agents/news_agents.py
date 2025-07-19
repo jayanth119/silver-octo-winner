@@ -1,14 +1,14 @@
 import os
 import random
 import json
-import mistune  # Alternative Markdown parser
+import mistune  
 from textwrap import dedent
 from dotenv import load_dotenv
 # Import required tools and models
 from agno.models.google import Gemini
 from agno.agent import Agent
 from tools import NewsTools, web_search, newspaper
-from models import llm
+from models.models import llm
 
 # Load environment variables
 load_dotenv()
