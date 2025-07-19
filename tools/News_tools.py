@@ -1,10 +1,7 @@
 import requests
 import os 
-import json
 from agno.tools.duckduckgo import DuckDuckGoTools
-from agno.models.google import Gemini
 from agno.tools.newspaper4k import Newspaper4kTools
-from agno.agent import Agent
 import os
 from datetime import date , timedelta
 from dotenv import load_dotenv

@@ -2,13 +2,14 @@ import os
 import random
 import json
 import mistune  
+import sys
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+from models.models import llm
 from textwrap import dedent
 from dotenv import load_dotenv
-# Import required tools and models
-from agno.models.google import Gemini
 from agno.agent import Agent
-from tools import NewsTools, web_search, newspaper
-from models.models import llm
+from tools.News_tools  import NewsTools, web_search, newspaper
+
 
 # Load environment variables
 load_dotenv()

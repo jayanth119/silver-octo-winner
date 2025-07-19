@@ -20,52 +20,21 @@ class MedicineAgent:
             description=medicine_prompt
         )
 
-    def load_images_from_directory(self, directory_path):
-        if not os.path.exists(directory_path):
-            raise FileNotFoundError(f"Directory or file not found: {directory_path}")
-
-        supported_extensions = ('.jpg', '.jpeg', '.png', '.webp', '.bmp', '.gif')
-        image_files = []
-
-        if os.path.isfile(directory_path):
-            if directory_path.lower().endswith(supported_extensions):
-                image_files.append(directory_path)
-        else:
-            for file in os.listdir(directory_path):
-                if file.lower().endswith(supported_extensions):
-                    full_path = os.path.join(directory_path, file)
-                    if os.path.isfile(full_path):
-                        image_files.append(full_path)
-
-        if not image_files:
-            raise ValueError(f"No supported image files found in {directory_path}")
-
-        image_files.sort()
-        images = []
-        for img_path in image_files:
-            try:
-                print(f"Loading image: {img_path}")
-                image = Image(filepath=img_path)
-                images.append(image)
-            except Exception as e:
-                print(f"Error loading image {img_path}: {e}")
-        return images
-
-    def analyze_images(self, image_path):
+    def analyze_image(self, img_path):
         try:
-            images = self.load_images_from_directory(image_path)
-            if not images:
-                return "No images could be loaded"
+            if not os.path.exists(img_path):
+                raise FileNotFoundError(f"File not found: {img_path}")
 
-            print(f"Loaded {len(images)} image(s) for analysis")
+            print(f"Analyzing image: {img_path}")
+            image = Image(filepath=img_path)
 
             response = self.agent.run(
-                "Analyze the provided medicine images and extract details as per the given format.",
-                images=images
+                "Analyze the provided medicine image and extract details as per the given format.",
+                images=[image]
             )
             return response.content
         except Exception as e:
-            print(f"Error analyzing images: {e}")
+            print(f"Error analyzing image: {e}")
             return None
 
     def parse_json_response(self, response_content):
@@ -118,9 +87,9 @@ class MedicinePipeline:
         self.extractor = MedicineAgent()
         self.info_agent = MedicineInfoAgent()
 
-    def process(self, image_path, language="English"):
+    def process(self, img_path, language="English"):
         print("Step 1: Extracting medicine details from image...")
-        raw_response = self.extractor.analyze_images(image_path)
+        raw_response = self.extractor.analyze_image(img_path)
 
         if not raw_response:
             return "Failed to extract medicine info from image."
@@ -145,17 +114,9 @@ class MedicinePipeline:
             if parsed_details:
                 results.append(parsed_details)
 
-        # Save combined results
-        self.save_results(results, "medicine_info.json")
         return results
 
-    def save_results(self, results, output_file="medicine_info.json"):
-        try:
-            with open(output_file, 'w') as f:
-                json.dump(results, f, indent=2, ensure_ascii=False)
-            print(f"Results saved to {output_file}")
-        except Exception as e:
-            print(f"Error saving results: {e}")
+
 
 
 if __name__ == "__main__":

@@ -10,7 +10,7 @@ def get_llm_instance(max_retries=5):
     attempt = 0
     while attempt < max_retries:
         try:
-            llm = Gemini(id="gemini-1.5-flash", api_key="AIzaSyDD_OebBFAx5oh1kw8P8nJs0T2_j1vUbvA")
+            llm = Gemini(id="gemini-1.5-flash", api_key=groq_api_key)
             return llm
         except Exception as e:
             print(f"Attempt {attempt+1} failed: {e}. Retrying in {2**attempt} seconds...")
