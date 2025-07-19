@@ -74,7 +74,7 @@ shellingham
 six
 smmap
 sniffio
-soupsiev
+soupsieve==2.7
 SQLAlchemy
 starlette
 tenacity
