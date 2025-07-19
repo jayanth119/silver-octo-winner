@@ -43,9 +43,9 @@ mem0ai
 mistune
 newspaper4k
 nltk
-numpy
+numpy>=1.26,<2.0
 openai
-pandas
+pandas>=2.2,<2.4
 pillow
 portalocker
 posthog
@@ -54,7 +54,7 @@ protobuf
 pyasn1
 pyasn1_modules
 pycountry
-pydantic
+pydantic>=2.8,<3.0
 pydantic-settings
 pydantic_core
 Pygments
@@ -63,7 +63,7 @@ python-dotenv
 python-multipart
 pytz
 PyYAML
-qdrant-client
+qdrant-client>=1.7,<1.14
 regex
 requests
 requests-file
@@ -75,7 +75,7 @@ six
 smmap
 sniffio
 soupsieve==2.7
-SQLAlchemy
+SQLAlchemy>=2.0,<2.1
 starlette
 tenacity
 tldextract
@@ -83,7 +83,7 @@ tomli
 tqdm
 typer
 typing-inspection
-typing_extension
+typing_extensions
 tzdata
 urllib3
 websockets
