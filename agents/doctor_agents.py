@@ -5,7 +5,6 @@ sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from models.models import llm
 from prompts.doctorPrompt import doctor_agent_prompt
 from agno.agent import Agent
-from agno.tools.mem0 import Mem0Tools
 from agno.tools.duckduckgo import DuckDuckGoTools
 from agno.tools.googlesearch import GoogleSearchTools
 
@@ -19,7 +18,6 @@ class DoctorAgent:
             tools=[
                 DuckDuckGoTools(),
                 GoogleSearchTools(),
-                Mem0Tools()  
             ]
         )
 
