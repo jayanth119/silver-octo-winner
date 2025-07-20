@@ -1,13 +1,12 @@
 agno
 duckduckgo-search
 googlesearch-python
-newspaper3k
 pycountry
 google-genai
 flask
 flask_cors
-mem0ai
 gunicorn
 mistune
-newspaper4k 
+newspaper4k
 lxml_html_clean
+mem0ai
