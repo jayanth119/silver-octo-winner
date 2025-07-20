@@ -8,3 +8,4 @@ newspaper4k
 flask
 flask_cors
 mem0ai
+gunicorn
