@@ -9,3 +9,4 @@ flask
 flask_cors
 mem0ai
 gunicorn
+mistune
