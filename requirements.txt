@@ -4,9 +4,10 @@ googlesearch-python
 newspaper3k
 pycountry
 google-genai
-newspaper4k
 flask
 flask_cors
 mem0ai
 gunicorn
 mistune
+newspaper4k 
+lxml_html_clean
