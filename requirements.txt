@@ -7,4 +7,4 @@ google-genai
 newspaper4k
 flask
 flask_cors
-mem0
+mem0ai
